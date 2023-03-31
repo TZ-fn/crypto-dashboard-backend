@@ -6,8 +6,7 @@ async function getData(APIkey: string | undefined) {
           "X-CMC_PRO_API_KEY": APIkey,
         },
       });
-      const data = await response.json();
-      console.log(data);
+      return response;
     }
   } catch (e) {}
 }

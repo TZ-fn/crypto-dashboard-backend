@@ -19,8 +19,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "strictNullChecks": true,
-    "noImplicitAny": true,
-    "allowImportingTsExtensions": true
+    "noImplicitAny": true
+    // "allowImportingTsExtensions": true
   },
   "include": ["**/*.ts"],
   "exclude": ["node_modules"]

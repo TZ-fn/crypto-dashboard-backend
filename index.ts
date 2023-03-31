@@ -3,6 +3,20 @@ import express from "express";
 import getData from "./getData.ts";
 
 dotenv.config();
-const COINMARKETCAP_API_KEY = process.env.COINMARKETCAP_API_KEY;
+const app = express();
 
-getData(COINMARKETCAP_API_KEY);
+const COINMARKETCAP_API_KEY = process.env.COINMARKETCAP_API_KEY;
+const PORT = process.env.PORT || 5000;
+
+app.get("/", async (_req, res) => {
+  const data = await getData(COINMARKETCAP_API_KEY);
+  if (data) {
+    res.send(await data.json());
+  }
+});
+
+app.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}`);
+});
+
+//
