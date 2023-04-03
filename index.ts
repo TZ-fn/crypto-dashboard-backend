@@ -11,9 +11,8 @@ const PORT = process.env.PORT || 3001;
 app.get("/", async (_req, res) => {
   const data = await getData(COINMARKETCAP_API_KEY);
   if (data) {
-    res.type("html").send(html);
   }
-  console.log(data);
+  res.type("html").send(html);
 });
 
 app.listen(PORT, () => {
