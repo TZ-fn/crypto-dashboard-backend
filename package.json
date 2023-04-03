@@ -1,8 +1,7 @@
 {
   "type": "module",
   "scripts": {
-    "start": "ts-node --esm -T index.ts",
-    "build": "npm install"
+    "start": "ts-node --esm -T index.ts"
   },
   "dependencies": {
     "dotenv": "^16.0.3",
