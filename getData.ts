@@ -8,7 +8,9 @@ async function getData(APIkey: string | undefined) {
       });
       return response;
     }
-  } catch (e) {}
+  } catch (e) {
+    console.log(e);
+  }
 }
 
 export default getData;
