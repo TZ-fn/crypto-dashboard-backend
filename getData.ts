@@ -1,3 +1,5 @@
+global.fetch = require("node-fetch");
+
 async function getData(APIkey: string | undefined) {
   try {
     if (APIkey !== undefined) {
