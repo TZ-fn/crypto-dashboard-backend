@@ -1,4 +1,4 @@
-global.fetch = require("node-fetch");
+import fetch from "node-fetch";
 
 async function getData(APIkey: string | undefined) {
   try {
