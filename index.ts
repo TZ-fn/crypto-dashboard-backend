@@ -6,6 +6,11 @@ import routes from "./routes.ts";
 dotenv.config();
 const app = express();
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
+
 const COINMARKETCAP_API_KEY = process.env.COINMARKETCAP_API_KEY;
 const PORT = process.env.PORT || 3001;
 
