@@ -1,5 +1,6 @@
-const routes: { latest: "latest" } = {
+const routes = {
   latest: "latest",
+  meta: "meta",
 };
 
 export default routes;

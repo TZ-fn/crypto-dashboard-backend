@@ -21,6 +21,13 @@ app.get(`/${routes.latest}`, async (_req, res) => {
   }
 });
 
+app.get(`/${routes.meta}`, async (_req, res) => {
+  const data = await getData(COINMARKETCAP_API_KEY, routes.meta);
+  if (data) {
+    res.type("json").send(await data.json());
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 });
