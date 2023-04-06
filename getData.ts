@@ -6,7 +6,7 @@ const APIroutes = {
   meta: "https://pro-api.coinmarketcap.com/v2/cryptocurrency/info",
 };
 
-async function getData(APIkey: string | undefined, route: string) {
+async function getData(APIkey: string | undefined, route: keyof routes) {
   try {
     if (APIkey !== undefined) {
       const response = await fetch(APIroutes[route], {
