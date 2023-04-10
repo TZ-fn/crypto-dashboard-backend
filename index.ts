@@ -6,6 +6,11 @@ import routes from "./routes.ts";
 dotenv.config();
 const app = express();
 
+const APIroutes = {
+  latest: "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest",
+  meta: "https://pro-api.coinmarketcap.com/v2/cryptocurrency/info",
+};
+
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   next();
@@ -24,7 +29,7 @@ app.get(`/${routes.latest}`, async (_req, res) => {
 app.get(`/${routes.meta}`, async (req, res) => {
   const queryID = req.query.id;
   const endpoint = `${routes.meta}?id=${queryID}`;
-  const data = await getData(COINMARKETCAP_API_KEY, address);
+  const data = await getData(COINMARKETCAP_API_KEY, endpoint);
   if (data) {
     res.type("json").send(await data.json());
   }

@@ -1,15 +1,9 @@
 import fetch from "node-fetch";
-import routes from "routes";
 
-const APIroutes = {
-  latest: "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest",
-  meta: "https://pro-api.coinmarketcap.com/v2/cryptocurrency/info",
-};
-
-async function getData(APIkey: string | undefined, route: keyof routes) {
+async function getData(APIkey: string | undefined, endpoint: string) {
   try {
     if (APIkey !== undefined) {
-      const response = await fetch(APIroutes[route], {
+      const response = await fetch(endpoint, {
         headers: {
           "X-CMC_PRO_API_KEY": APIkey,
         },
