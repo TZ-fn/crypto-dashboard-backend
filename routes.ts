@@ -1,11 +1,11 @@
 interface routes {
   latest: "latest";
-  meta: "meta";
+  info: "info";
 }
 
 const routes: routes = {
   latest: "latest",
-  meta: "meta",
+  info: "info",
 };
 
 export default routes;
