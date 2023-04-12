@@ -20,7 +20,7 @@ const COINMARKETCAP_API_KEY = process.env.COINMARKETCAP_API_KEY;
 const PORT = process.env.PORT || 3001;
 
 app.get(`/${routes.latest}`, async (_req, res) => {
-  const data = await getData(COINMARKETCAP_API_KEY, routes.latest);
+  const data = await getData(COINMARKETCAP_API_KEY, APIroutes.latest);
   if (data) {
     res.type("json").send(await data.json());
   }
