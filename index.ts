@@ -11,7 +11,7 @@ const APIroutes = {
   info: "https://pro-api.coinmarketcap.com/v2/cryptocurrency/info",
 };
 
-app.use((req, res, next) => {
+app.use((_req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   next();
 });
