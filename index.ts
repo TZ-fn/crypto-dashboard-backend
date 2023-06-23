@@ -13,7 +13,7 @@ const APIroutes = {
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", req.headers.origin);
-  res.type("json").send(req.headers.origin);
+  console.log(req.headers.origin);
   next();
 });
 
