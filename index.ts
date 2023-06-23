@@ -12,14 +12,7 @@ const APIroutes = {
 };
 
 app.use((req, res, next) => {
-  const corsWhitelist = ["https://crypto-dashboard-gamma-khaki.vercel.app/", process.env.MYIP];
-
-  // if (corsWhitelist.includes(req.headers.origin)) {
   res.header("Access-Control-Allow-Origin", req.headers.origin);
-  // res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  // } else {
-  // res.type("json").send(req.headers.origin);
-  // }
   next();
 });
 
