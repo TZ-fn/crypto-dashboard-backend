@@ -18,7 +18,7 @@ app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", req.headers.origin);
   // res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   // } else {
-  res.type("json").send(req.headers.origin);
+  // res.type("json").send(req.headers.origin);
   // }
   next();
 });
