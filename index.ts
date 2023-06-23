@@ -17,6 +17,8 @@ app.use((req, res, next) => {
   if (corsWhitelist.includes(req.headers.origin)) {
     res.header("Access-Control-Allow-Origin", req.headers.origin);
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  } else {
+    res.type("json").send(req.headers.origin);
   }
   next();
 });
