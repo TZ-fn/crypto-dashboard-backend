@@ -11,17 +11,15 @@ const APIroutes = {
   info: "https://pro-api.coinmarketcap.com/v2/cryptocurrency/info",
 };
 
-// app.use((req, res, next) => {
-//   const corsWhitelist = ["https://crypto-dashboard-gamma-khaki.vercel.app/", process.env.MYIP];
+app.use((req, res, next) => {
+  const corsWhitelist = ["https://crypto-dashboard-gamma-khaki.vercel.app", "http://localhost:5173"];
 
-//   // if (corsWhitelist.includes(req.headers.origin)) {
-//   res.header("Access-Control-Allow-Origin", req.headers.origin);
-//   // res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//   // } else {
-//   res.type("json").send(req.headers.origin);
-//   // }
-//   next();
-// });
+  if (corsWhitelist.includes(req.headers.origin)) {
+    res.header("Access-Control-Allow-Origin", req.headers.origin);
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  }
+  next();
+});
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", req.headers.origin);
@@ -39,7 +37,6 @@ app.get(`/${routes.latest}`, async (_req, res) => {
 });
 
 app.get(`/${routes.info}`, async (req, res) => {
-  console.log(req.headers.origin);
   const queryID = req.query.id;
   const endpoint = `${APIroutes.info}?id=${queryID}`;
   const data = await getData(COINMARKETCAP_API_KEY, endpoint);
